@@ -2,9 +2,19 @@ package wt.empresa.empresa_api.model;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name="Produtos")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProdutosModel {
 
     @Id
@@ -18,11 +28,14 @@ public class ProdutosModel {
     private String descricao;
 
     @Column(name="preco_custo")
-    private Double preco_custo;
+    private Double precoCusto;
 
     @Column(name="preco_venda")
-    private Double preco_venda;
+    private Double precoVenda;
 
     @Column(name="unidade")
     private String unidade;
+
+    @OneToMany(mappedBy = "produtoId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrcamentosItensModel> produtos;
 }

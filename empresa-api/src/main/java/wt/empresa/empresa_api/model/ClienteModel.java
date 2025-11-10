@@ -1,9 +1,19 @@
 package wt.empresa.empresa_api.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name="Clientes")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ClienteModel {
 
     @Id
@@ -21,4 +31,7 @@ public class ClienteModel {
 
     @Column(name="endereco")
     private String endereco;
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrcamentosModel> orcamentos;
 }

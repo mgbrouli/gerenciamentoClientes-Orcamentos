@@ -2,9 +2,17 @@ package wt.empresa.empresa_api.model;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name="Empresa")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class EmpresaModel {
 
 
@@ -28,7 +36,7 @@ public class EmpresaModel {
     private String email;
 
     @Column(name="logo_url")
-    private String logo_url;
+    private String logoUrl;
 
 
 }
