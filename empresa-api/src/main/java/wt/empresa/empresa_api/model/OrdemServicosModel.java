@@ -46,7 +46,7 @@ public class OrdemServicosModel {
     private String problemaRelatado;
     @Column(name = "diagnostico_tecnico")
     private String diagnosticoTecnico;
-    @Column(name = "satus")
+    @Column(name = "status")
     private String status;
     @Column(name = "valor_total")
     private double valorTotal;
