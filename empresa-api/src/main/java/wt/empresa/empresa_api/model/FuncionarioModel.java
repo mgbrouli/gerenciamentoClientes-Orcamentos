@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name="Funcionarios")
 @Getter
@@ -29,6 +31,9 @@ public class FuncionarioModel {
 
     @Column(name="telefone")
     private String telefone;
+
+    @OneToMany(mappedBy = "responsavelId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrdemServicosModel> responsavel;
 
 
 }

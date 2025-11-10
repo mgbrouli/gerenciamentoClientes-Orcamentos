@@ -7,35 +7,30 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="Orcamentos_itens")
+@Table(name = "Ordem_servicos_itens")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class OrcamentosItensModel {
+@AllArgsConstructor
+public class OrdemServicoItensModel {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="orcamento_id", nullable = false)
-    private OrcamentosModel orcamentoId;
+    @JoinColumn(name = "os_id", nullable = false)
+    private OrdemServicosModel ordemServicos;
 
     @ManyToOne
     @JoinColumn(name="produto_id", nullable = false)
-    private ProdutosModel produtoId;
+    private ProdutosModel produto;
 
     @ManyToOne
     @JoinColumn(name="servico_id", nullable = false)
-    private ServicosModel servicosId;
+    private ServicosModel servicos;
 
-
-
-    @Column(name="quantidade")
-    private int quantidade;
-
-    @Column(name="preco_unitaro")
-    private Double precoUnitario;
-
+    @Column(name="preco_unitario")
+    private double precoUnitario;
 }

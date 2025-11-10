@@ -34,4 +34,8 @@ public class ClienteModel {
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrcamentosModel> orcamentos;
+
+    @OneToMany(mappedBy = "clienteId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrdemServicosModel> ordemServicos;
+
 }

@@ -20,7 +20,7 @@ public class ServicosModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name="nome")
     private String nome;
@@ -33,4 +33,7 @@ public class ServicosModel {
 
     @OneToMany(mappedBy = "servicosId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrcamentosItensModel> itensDoOrcamento;
+
+    @OneToMany(mappedBy = "servicos", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrdemServicoItensModel> ordemServicoItensModels;
 }

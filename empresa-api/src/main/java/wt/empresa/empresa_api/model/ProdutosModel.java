@@ -38,4 +38,8 @@ public class ProdutosModel {
 
     @OneToMany(mappedBy = "produtoId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrcamentosItensModel> produtos;
+
+
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<OrdemServicoItensModel> ordemServicoItensModels;
 }
