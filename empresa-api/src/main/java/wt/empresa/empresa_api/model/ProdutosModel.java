@@ -1,6 +1,7 @@
 package wt.empresa.empresa_api.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,10 +37,11 @@ public class ProdutosModel {
     @Column(name="unidade")
     private String unidade;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "produtoId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrcamentosItensModel> produtos;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<OrdemServicoItensModel> ordemServicoItensModels;
 }

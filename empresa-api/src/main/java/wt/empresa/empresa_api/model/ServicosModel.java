@@ -1,6 +1,7 @@
 package wt.empresa.empresa_api.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,9 +32,11 @@ public class ServicosModel {
     @Column(name="preco_fixo")
     private double precoFixo;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "servicosId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrcamentosItensModel> itensDoOrcamento;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "servicos", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrdemServicoItensModel> ordemServicoItensModels;
 }
