@@ -2,6 +2,7 @@ package wt.empresa.empresa_api.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,7 +40,7 @@ public class OrcamentosModel {
     @JoinColumn(name="client_id", nullable = false)
     private ClienteModel cliente;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "orcamentoId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrcamentosItensModel> itens;
 

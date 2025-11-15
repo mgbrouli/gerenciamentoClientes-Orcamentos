@@ -1,5 +1,6 @@
 package wt.empresa.empresa_api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,6 +33,7 @@ public class FuncionarioModel {
     @Column(name="telefone")
     private String telefone;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "responsavelId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrdemServicosModel> responsavel;
 
